@@ -3,24 +3,25 @@
 
 import numpy as np
 
+sigma = 5.670e-8      # Stefan-Boltzmann constant, W m^-2 K^-4
+
 # Example inputs: the Sun and Earth, a case where we know the answer.
-T_star = 5772.0       # star's effective temperature, K
-R_star = 6.957e8      # star's radius, m
-a = 1.496e11          # planet's orbital distance (semi-major axis), m
-albedo = 0.30         # fraction of starlight the planet reflects, no units
+L = 3.828e26          # star's luminosity, W
+d = 1.496e11          # planet's distance from the star, m
 
 
-def equilibrium_temperature(T_star, R_star, a, albedo):
+def equilibrium_temperature(L, d):
     """Return the equilibrium temperature of a planet, in K.
 
-    T_star : star's effective temperature, K
-    R_star : star's radius, m
-    a      : planet's orbital distance, m (same units as R_star)
-    albedo : fraction of light reflected, between 0 and 1
+    Uses T_eq = ( L / (16 pi sigma d^2) )^(1/4), which assumes
+    the planet absorbs all the starlight that hits it (no albedo).
+
+    L : star's luminosity, W
+    d : planet's distance from the star, m
     """
     # TODO(human):
-    #   1. Compute the ratio R_star / (2 * a).
-    #   2. Take its square root.
-    #   3. Compute (1 - albedo) to the 1/4 power.
-    #   4. Multiply T_star by the results of steps 2 and 3, and return it.
+    #   1. Compute the denominator: 16 * pi * sigma * d squared.
+    #      (numpy gives you pi as np.pi)
+    #   2. Divide L by that denominator.
+    #   3. Raise the result to the 1/4 power, and return it.
     pass
