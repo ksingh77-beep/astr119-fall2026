@@ -29,12 +29,20 @@ def legpoly(n,x):
 
     # Calculate P_n(x)
     ### THIS IS WHERE YOU COME IN
+    if n==0:
+        return 1.0
+    p_prev=1.0
+    p_curr=x
+    for k in range(1,n):
+        p_next= 0.5*(3*x**2-1)
+        pₖ₊₁= (2*k+1)*x*p_curr-k*p_prev
+    return p_curr
+
     ### USE AS MANY LINES AS YOU NEED
     ### USE A FOR LOOP OR WHILE LOOP, WHICHEVER YOU LIKE
     y = None
     ###
 
-    return y
 
 ### For testing during development
 def _test1():
