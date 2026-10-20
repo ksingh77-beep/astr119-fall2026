@@ -36,8 +36,8 @@ def legpoly(n,x):
     for k in range(1,n):
         pk= (2*k+1)*x*p_curr-k*p_prev
         p_next=(pk/(k+1))
-        p_curr = p_next
         p_prev = p_curr
+        p_curr = p_next
     return p_curr
 
     ### USE AS MANY LINES AS YOU NEED
